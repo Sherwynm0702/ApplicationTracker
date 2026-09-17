@@ -7,7 +7,7 @@ import applicationRoutes from "./routes/applicationRoutes.js";
 
 const PORT= process.env.PORT || 5000;
 const app = express();
-app.use(cors());
+app.use(cors({ origin: process.env.CORS_ORIGIN || "https://application-tracker-jade.vercel.app" }));
 app.use(express.json());
 
 pool.query("SELECT NOW()")
