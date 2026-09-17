@@ -1,5 +1,8 @@
 # Application Tracker
 
+**Live demo:** [application-tracker-jade.vercel.app](https://application-tracker-jade.vercel.app)
+*(backend is on Render's free tier, so the first request after a period of inactivity can take ~30s to wake up)*
+
 A small web app I built to keep track of my job applications and to keep all the important details in one place.
 The goal was to make something simple, fast and informative, with a clean UI that’s easy to scan.
 
@@ -42,8 +45,26 @@ npm install
 node server.js
 ```
 
-You’ll need a few environment variables for the backend (for example: database connection string, JWT secret, port, etc.).
-In my local setup I keep them in a .env file that isn’t committed to Git.
+You'll need a `.env` file in `backend/` (not committed to Git) with:
+
+```
+PORT=5000
+JWT_SECRET=your-secret-here
+# either a full connection string...
+DATABASE_URL=postgres://user:password@host:port/dbname
+# ...or individual fields
+DB_USER=
+DB_PASSWORD=
+DB_HOST=
+DB_PORT=
+DB_NAME=
+```
+
+And a `.env` in `frontend/` with:
+
+```
+REACT_APP_API_URL=http://localhost:5000/api
+```
 
 ---
 
